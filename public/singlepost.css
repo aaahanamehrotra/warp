@@ -1,0 +1,32 @@
+.single-post-1 {
+  width: 80%;
+  margin: auto;
+}
+
+.single-title {
+  text-align: center;
+  padding-bottom: 5%;
+}
+.details-single {
+  display: flex;
+  justify-content: space-around;
+}
+
+.article-single {
+  padding: 5%;
+}
+.single-to-all {
+  text-decoration: none;
+  background-color: #f1f1f1;
+  padding: 1%;
+  color: black;
+  transition: all 0.5s ease-in-out;
+}
+
+.single-to-all:hover {
+  transform: scale(1.1);
+}
+.single-to-all-div {
+  display: flex;
+  justify-content: center;
+}

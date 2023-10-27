@@ -1,0 +1,58 @@
+<div class="img-container">
+  <img src="/images/map.png" class="top-img" />
+</div>
+<div id="map-example">
+  <h1 class="about-title">Maps</h1>
+  <div id="map-example-1"></div>
+</div>
+
+<div class="data-source">
+  We plotted this map using real world data about sea corals.
+  <br />
+  <br />
+  Big shout out to NOAA and it's partners. Thank you for being scientists!
+  <br />
+  The original and probably more up-to-date dataset can be found
+  <a
+    href="https://deepseacoraldata.noaa.gov/website/AGSViewers/DeepSeaCorals/mapSites.htm"
+    target="_blank"
+    style="color: blue; text-decoration: underline"
+    >here</a
+  >.
+
+  <br />
+  <br />
+
+  NOAA (2015) National Database for Deep-Sea Corals and Sponges (version
+  20170324-0).
+  <a
+    href="https://deepseacoraldata.noaa.gov/"
+    target="_blank"
+    style="color: blue; text-decoration: underline"
+    >https://deepseacoraldata.noaa.gov/</a
+  >;
+  <br />
+  NOAA Deep Sea Coral Research & Technology Program.
+</div>
+<hr />
+<h1 class="heading">View more maps</h1>
+<div class="map-links">
+  <li class="map-li">
+    <a class="map-indiv" href="/plastic">Plastic Pollution in Oceans</a>
+  </li>
+  <li class="map-li"><a class="map-indiv" href="/oilspill">Oil Spills</a></li>
+  <li class="map-li">
+    <a class="map-indiv" href="/marine">Marine Life Depletion</a>
+  </li>
+
+  <script>
+    mapboxgl.accessToken =
+      "pk.eyJ1IjoiYWFhaGFuYW1laHJvdHJhIiwiYSI6ImNrdXhxcmJ2NjJoa2IydXF2d3FkcDN0ZGEifQ.998EzKxZ2f0jJH7j45rkbg";
+    const map = new mapboxgl.Map({
+      container: "map-example-1", // container ID
+      style: "mapbox://styles/aaahanamehrotra/ckvhuddl27fzq15o24866dqk4", // style URL
+      center: [-142.03125, 58.26328705248601], // starting position [lng, lat]
+      zoom: 3, // starting zoom
+    });
+  </script>
+</div>

@@ -1,0 +1,60 @@
+<div class="img-container">
+  <img src="/images/profile.png" class="top-img" />
+</div>
+<h1 class="heading">Your Profile</h1>
+<div class="profile-container">
+  <div class="profile">
+    <h2 class="h2p">Name</h2>
+    <%= user.name %>
+  </div>
+
+  <div class="profile">
+    <h2 class="h2p">Email</h2>
+    <%= user.email %>
+  </div>
+
+  <div class="profile">
+    <h2 class="h2p">Role</h2>
+    <%= user.role%>
+  </div>
+
+  <div class="profile">
+    <h2 class="h2p">subject(s)</h2>
+    <div class="subjects-profile">
+      <%for(var i = 0; i < user.subjects.length; i++){%><a
+        href="/subjects/<%= user.subjects[i]%>"
+        class="sub-single"
+      >
+        <%= user.subjects[i]%> </a
+      ><%}%>
+    </div>
+  </div>
+
+  <a href="/updateprofile" class="updateprofile">UPDATE</a>
+</div>
+
+
+<h1 class="heading">Your Posts</h1>
+<div class="all-posts-1">
+<% for (let i = 0; i < data.length; i++) { %>
+    <%if(data[i].username === user.name){ %>
+    <div class="post-card-1">
+    <h2 class="post-title-1"><%= data[i].title %></h2>
+    <% let d = String(data[i].createdAt.getDate()).padStart(2, '0') %>
+    <% let m = String(data[i].createdAt.getMonth() + 1).padStart(2, '0') %>
+    <% let y = data[i].createdAt.getFullYear() %>
+    
+    <div class="article-1"><%= data[i].article.slice(0, 200) + "..." %></div>
+    <div class="details-1">
+    <% let x = `/specific-post/${data[i]._id}` %>
+    <div class="username-1">In: <%= data[i].subject !== undefined ? data[i].subject : "general" %></div>
+    <div class="date-1"><%= d + '/' + m + '/' + y %>
+    <%= data[i].createdAt.toUTCString().slice(16) %></div>
+    
+    </div>
+    <div class="read-div-1"><a href="<%= x %>"" class="open-1" >Read More</a></div>
+    </div>
+    <%}%>
+    <% } %>
+</div>
+

@@ -1,0 +1,83 @@
+<h1 class="about-title">
+  Oil Spills
+</h1>
+<div id="map"></div>
+
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiYWFhaGFuYW1laHJvdHJhIiwiYSI6ImNrdXhxcmJ2NjJoa2IydXF2d3FkcDN0ZGEifQ.998EzKxZ2f0jJH7j45rkbg';
+
+      const geojson = {
+        'type': 'FeatureCollection',
+        'features': [
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [-91.40625, 25.16517336866393 ]
+            },
+            'properties': {
+              'title': 'Deep Water oil spill',
+              'description': 'The Deepwater Horizon oil spill was an industrial disaster that began on 20 April 2010, in the Gulf of Mexico on the BP-operated Macondo Prospect,[6][7][8][9] considered to be the largest marine oil spill in the history of the petroleum industry'
+            }
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [-44.6484375, 53.12040528310657 ]
+            },
+            'properties': {
+              'title': 'Odyssey oil spill',
+              'description': 'Polembros Shipping Ltd. Odyssey, which previously went by the name Oriental Phoenix, was an oil tanker in operation from 1971 to November 10, 1988, when an explosion caused it to sink in the North Atlantic off the coast of Canada.'
+            }
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [-49.5703125, 5.266007882805498]
+            },
+            'properties': {
+              'title': 'SS Atlantic Empress',
+              'description': 'SS Atlantic Empress was a Greek oil tanker that in 1979 collided with the oil tanker Aegean Captain in the Caribbean, and eventually sank.'
+            }
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [-8.4375, 43.068887774169625]
+            },
+            'properties': {
+              'title': 'Amoco Cadiz',
+              'description': 'The oil tanker Amoco Cadiz ran aground on Portsall Rocks, 2 km from the coast of Brittany, France, on 16 March 1978, and ultimately split in three and sank, all together resulting in the largest oil spill of its kind in history to that date'
+            }
+          }
+        ]
+      };
+
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v10',
+        center: [0,0],
+        zoom: 1
+      });
+
+      // add markers to map
+      for (const feature of geojson.features) {
+        // create a HTML element for each feature
+        const el = document.createElement('div');
+        el.className = 'marker os';
+
+        // make a marker for each feature and add it to the map
+        new mapboxgl.Marker(el)
+          .setLngLat(feature.geometry.coordinates)
+          .setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+              .setHTML(
+                `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+              )
+          )
+          .addTo(map);
+      }
+    </script>

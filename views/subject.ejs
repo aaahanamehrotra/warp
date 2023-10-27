@@ -1,0 +1,30 @@
+<div class="img-container">
+  <img src="/images/subject.png" class="top-img" />
+</div>
+<h1 class="heading"><%= subject.charAt(0).toUpperCase()+subject.slice(1) %></h1>
+<div class="create-div-1">
+<%- include ("./partials/createcontent"); %>
+</div>
+<div class="all-posts-1">
+<% for (let i = 0; i < data.length; i++) { %>
+    <%if(data[i].subject === subject){ %>
+    <div class="post-card-1">
+    <h2 class="post-title-1"><%= data[i].title %></h2>
+    <% let d = String(data[i].createdAt.getDate()).padStart(2, '0') %>
+    <% let m = String(data[i].createdAt.getMonth() + 1).padStart(2, '0') %>
+    <% let y = data[i].createdAt.getFullYear() %>
+    
+    <div class="article-1"><%= data[i].article.slice(0, 200) + "..." %></div>
+    <div class="details-1">
+    <% let x = `/specific-post/${data[i]._id}` %>
+    <div class="username-1">By <%= data[i].username %></div>
+    <div class="date-1"><%= d + '/' + m + '/' + y %>
+    <%= data[i].createdAt.toUTCString().slice(16) %></div>
+    
+    </div>
+    <div class="read-div-1"><a href=<%= x %> class="open-1" >Read More</a></div>
+    </div>
+    <%}%>
+    <% } %>
+</div>
+

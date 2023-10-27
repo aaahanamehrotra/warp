@@ -1,0 +1,88 @@
+<div class="img-container">
+  <img src="/images/Mentorship.jpg" class="top-img" />
+</div>
+<h1 class="heading">Update Profile</h1>
+
+<%- include ("./partials/messages"); %>
+<form action="/users/updprofile" method="POST">
+  <label for="name" class="reg-input">Name</label>
+  <input
+    type="name"
+    id="name"
+    name="name"
+    placeholder="Enter Name"
+    value="<%= typeof user != 'undefined' ? user.name : '' %>"
+    class="reg-input"
+  />
+
+  <label for="email" class="reg-input">Email</label>
+  <input
+    readonly
+    type="email"
+    id="email"
+    name="email"
+    placeholder="Enter Email"
+    value="<%= typeof user != 'undefined' ? user.email : '' %>"
+    class="reg-input"
+  />
+  <div class="subjects">
+    <p>Subjects</p>
+    <div class="checkboxes">
+      <div class="subj-indiv">
+        <input type="checkbox" name="math"
+        <%if(user.subjects.includes("mathematics")){%> <%= "checked" %> <%}%>/>
+        <label for="math">Mathematics </label>
+      </div>
+      <div class="subj-indiv">
+        <input type="checkbox" name="phy" <input type="checkbox" name="math"
+        <%if(user.subjects.includes("physics")){%> <%= "checked" %> <%}%>/>
+        <label for="phy">Physics</label>
+      </div>
+      <div class="subj-indiv">
+        <input type="checkbox" name="economics"
+        <%if(user.subjects.includes("economics")){%> <%= "checked" %> <%}%>/>
+        <label for="economics">Economics</label>
+      </div>
+      <div class="subj-indiv">
+        <input type="checkbox" name="accountancy"
+        <%if(user.subjects.includes("accountancy")){%> <%= "checked" %> <%}%>/>
+        <label for="accountancy">Accountancy</label>
+      </div>
+      <div class="subj-indiv">
+        <input type="checkbox" name="english"
+        <%if(user.subjects.includes("english")){%> <%= "checked" %> <%}%>/>
+        <label for="english">English</label>
+      </div>
+      <div class="subj-indiv">
+        <input type="checkbox" name="chemistry"
+        <%if(user.subjects.includes("chemistry")){%> <%= "checked" %> <%}%>/>
+        <label for="chemistry">Chemistry</label>
+      </div>
+      <div class="subj-indiv">
+        <input type="checkbox" name="biology"
+        <%if(user.subjects.includes("biology")){%> <%= "checked" %> <%}%>/>
+        <label for="biology">Biology</label>
+      </div>
+      <div class="subj-indiv">
+        <input type="checkbox" name="geography"
+        <%if(user.subjects.includes("geography")){%> <%= "checked" %> <%}%>/>
+        <label for="geography">Geography</label>
+      </div>
+    </div>
+  </div>
+
+  <p class="role-h reg-input">Role</p>
+  <div class="roles">
+    <div class="role">
+      <input type="radio" name="role" value="student" <%if(user.role ===
+      "student"){%> <%= "checked" %> <%}%> />
+      <label for="role">Student</label>
+    </div>
+    <div class="role">
+      <input type="radio" name="role" value="mentor" <%if(user.role ===
+      "mentor"){%> <%= "checked" %> <%}%> />
+      <label for="role">Mentor</label>
+    </div>
+  </div>
+  <button type="submit" class="reg-input">Update</button>
+</form>

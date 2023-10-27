@@ -1,0 +1,21 @@
+        <div class="single-post-1">
+        <h1 class="single-title"><%= data.title %></h1>
+        
+        <div class="details-single">
+        <div class="user-1">Posted by <%= data.username %></div>
+        
+        
+        <% let d = String(data.createdAt.getDate()).padStart(2, '0') %>
+        <% let m = String(data.createdAt.getMonth() + 1).padStart(2, '0') %>
+        <% let y = data.createdAt.getFullYear() %>
+        <div class="date-time-1">Posted on <%= d + '/' + m + '/' + y %> at
+        <%= data.createdAt.toUTCString().slice(16) %>
+        </div></div>
+        
+        <div class="article-single"><%= data.article %></div>
+        </div>
+        
+        <div class="single-to-all-div">
+        <a href="/posts" class="single-to-all">View all posts</a>
+        </div>
+        

@@ -1,0 +1,116 @@
+<h1 class="about-title">
+  Plastic Waste in Oceans
+</h1>
+<div id="map"></div>
+
+    <script>
+      mapboxgl.accessToken = 'pk.eyJ1IjoiYWFhaGFuYW1laHJvdHJhIiwiYSI6ImNrdXhxcmJ2NjJoa2IydXF2d3FkcDN0ZGEifQ.998EzKxZ2f0jJH7j45rkbg';
+
+      const geojson = {
+        'type': 'FeatureCollection',
+        'features': [
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [151.171875, 43.58039085560784]
+            },
+            'properties': {
+              'title': 'Plastic Pollution',
+              'description': 'Pieces: 2 trillion \n Pounds: 192.8 million'
+            }
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [ 52.734375, -7.01366792756663]
+            },
+            'properties': {
+              'title': 'Plastic Pollution',
+              'description': 'pieces: 1.3 trillion \n Pound: 188.3'
+            }
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [-10.546875, 38.54816542304656]
+            },
+            'properties': {
+              'title': 'Plastic Pollution',
+              'description': 'Plastic can stick around indefinitely, wreaking havoc on marine ecosystems'
+            }
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [54.140625, -19.31114335506464]
+            },
+            'properties': {
+              'title': 'Plastic Pollution',
+              'description': 'Much of the plastic in the ocean is in the form of abandoned fishing nets.'
+            }
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [203.90625, -21.943045533438166]
+            },
+            'properties': {
+              'title': 'Plastic Pollution',
+              'description': 'Unlike some other kinds of waste, plastic doesn\'t decompose.'
+            }
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [-80.15625, -33.7243396617476]
+            },
+            'properties': {
+              'title': 'Plastic Pollution',
+              'description': 'As the plastic is tossed around, much of it breaks into tiny pieces, called microplastics. '
+            }
+          },
+          {
+            'type': 'Feature',
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [-75.9375, 28.92163128242129]
+            },
+            'properties': {
+              'title': 'Plastic Pollution',
+              'description': 'As the plastic is tossed around, much of it breaks into tiny pieces, called microplastics. '
+            }
+          }
+        ]
+      };
+
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v10',
+        center: [0,0],
+        zoom: 1
+      });
+
+      // add markers to map
+      for (const feature of geojson.features) {
+        // create a HTML element for each feature
+        const el = document.createElement('div');
+        el.className = 'marker pl';
+
+        // make a marker for each feature and add it to the map
+        new mapboxgl.Marker(el)
+          .setLngLat(feature.geometry.coordinates)
+          .setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+              .setHTML(
+                `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+              )
+          )
+          .addTo(map);
+      }
+    </script>

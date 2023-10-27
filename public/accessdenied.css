@@ -1,0 +1,15 @@
+.access-denied {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.four-zero-three {
+  font-size: 22.5vw;
+  line-height: 22.5vw;
+  color: #003366;
+}
+.access {
+  color: #868b8e;
+  font-size: 2.5vw;
+}

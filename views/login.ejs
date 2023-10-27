@@ -1,0 +1,27 @@
+<div class="img-container">
+  <img src="/images/login.png" class="top-img" />
+</div>
+<h1 class="heading">Login</h1>
+<%- include ("./partials/messages"); %>
+<form action="/users/login" method="POST">
+  <label for="email" class="reg-input">Email</label>
+  <input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="Enter Email"
+    class="reg-input"
+  />
+  <label for="password" class="reg-input">Password</label>
+  <input
+    type="password"
+    id="password"
+    name="password"
+    placeholder="Enter Password"
+    class="reg-input"
+  />
+  <button class="reg-input">Login</button>
+</form>
+<p class="reg-log">
+  Don't Have An Account? <a href="/users/register">Register</a>
+</p>

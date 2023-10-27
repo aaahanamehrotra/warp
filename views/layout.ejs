@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <link href="/scrollbar.css" rel="stylesheet" type="text/css" />
+    <link href="/singlepost.css" rel="stylesheet" type="text/css" />
+    <link href="/forum.css" rel="stylesheet" type="text/css" />
+    <link href="/profile.css" rel="stylesheet" type="text/css" />
+    <link href="/accessdenied.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://kit.fontawesome.com/0b06e88fcc.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="/images/icon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora&family=Montserrat&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 45vh;
+        height: 85vh;
+        width: 100%;
+      }
+      .marker {
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .mapboxgl-popup {
+        max-width: 200px;
+      }
+      .mapboxgl-popup-content {
+        text-align: center;
+        font-family: "Open Sans", sans-serif;
+      }
+      .m {
+        background-image: url("https://thumbs.dreamstime.com/b/fish-logo-design-animal-pisces-creative-sample-shrimp-marine-life-122532549.jpg");
+      }
+      .os {
+        background-image: url("https://image.shutterstock.com/image-vector/spill-oil-icon-vector-template-260nw-1200669403.jpg");
+      }
+      .pl {
+        background-image: url("https://previews.123rf.com/images/breathofriver/breathofriver1908/breathofriver190800011/128817527-thin-line-recycle-plastic-bottle-icon-outline-reuse-symbol-linear-recycling-plastic-waste-logo-edita.jpg");
+      }
+    </style>
+    <title>Marinomenta</title>
+  </head>
+  <body>
+    <div class="container">
+      <% if (login) { %> <%- include ("./partials/nav"); %> <% }else{ %> <%-
+      include ("./partials/navbar"); %> <% } %> <%- body %> <%- include
+      ("./partials/footer"); %>
+    </div>
+    <script src="/index.js"></script>
+  </body>
+</html>
